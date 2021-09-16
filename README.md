@@ -4,6 +4,9 @@ _Carrousel es un componente creado con react.js que puedes utilizar para crear u
 
 ## Comenzando 🚀
 
+
+  _**Los elememtos del carrousel se mandan al componente Carrousel por children**_    
+  
 _El componente recibe las siguientes props_  
 
 ![carrouselImage](https://user-images.githubusercontent.com/74259071/133658282-a355dbe0-7db4-4b76-9dd8-e3cfe33faf0f.png)
@@ -24,7 +27,9 @@ _El componente recibe las siguientes props_
  **arrowNext** = "arrowNext recibe un id y es el id del elemento o button que ejecutara el scroll para avanzar al siguiente item; arrowNext -> No es obligatorio si no desea incluir los botones que controlan el scroll pero SI es obligatorio si desea incluir los botones que controlan el scroll"  
 
  **puntos** = "puntos recibe un id y es el id del elemento div en donde se mostraran los puntos de progreso"; puntos -> SI es obligatorio  
-
+  
+    
+      
 
 ### Pre-requisitos 📋
 
@@ -36,9 +41,9 @@ _Este Componente funciona con:_
 
 ### Instalación 🔧
 
-_Para un correcto funcionamiento del componente debes copiar a tu proyecto toda la carpeta components\carrousel (Carrousel.css & Carrousel.js)_
+_ 1- Para un correcto funcionamiento del componente debes copiar a tu proyecto toda la carpeta components\carrousel (Carrousel.css & Carrousel.js)_
 
-Para una mejor experiencia de desplazamiento agregar el propiedad (scroll-snap-align: end;) en la clase que pasará en la props item
+ 2- Para una mejor experiencia de desplazamiento agregar el propiedad (scroll-snap-align: end;) en la clase que pasará en la props item
 
 ```
  .itemClass{  
