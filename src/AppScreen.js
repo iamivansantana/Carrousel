@@ -23,19 +23,19 @@ const AppScreen = () => {
                             slidesToShow = {4}
                             // slidesToShowOnMovil = {2}
                             // slidesToScroll = {1}
-                            items = {'.image-picture'}
+                            items = {'.item-picture-carrousel'}
                             arrowPrev = {'carrusel-btnPrev'}
                             arrowNext = {'carrusel-btnNext'}
                             puntos = {'carruselPuntos'}
                         >
-                            {/* Para una mejor experiencia de desplazamiento agregar el propiedad (scroll-snap-align: end;) en la clase image-picture */}
-                            <div className="image-picture"> <img src="\assets\imagenesCarrousel\imagen1.jpg" alt="imagen1"/> </div>
-                            <div className="image-picture"> <img src="\assets\imagenesCarrousel\imagen2.jpg" alt="imagen2"/> </div>
-                            <div className="image-picture"> <img src="\assets\imagenesCarrousel\imagen7.jpg" alt="imagen7"/> </div>
-                            <div className="image-picture"> <img src="\assets\imagenesCarrousel\imagen3.jpg" alt="imagen3"/> </div>
-                            <div className="image-picture"> <img src="\assets\imagenesCarrousel\imagen4.jpg" alt="imagen4"/> </div>
-                            <div className="image-picture"> <img src="\assets\imagenesCarrousel\imagen5.jpg" alt="imagen5"/> </div>
-                            <div className="image-picture"> <img src="\assets\imagenesCarrousel\imagen8.jpg" alt="imagen8"/> </div>
+                            {/* Para una mejor experiencia de desplazamiento agregar el propiedad (scroll-snap-align: end;) en la clase item-picture-carrousel */}
+                            <div className="item-picture-carrousel"> <img src="\assets\imagenesCarrousel\imagen1.jpg" alt="imagen1"/> </div>
+                            <div className="item-picture-carrousel"> <img src="\assets\imagenesCarrousel\imagen2.jpg" alt="imagen2"/> </div>
+                            <div className="item-picture-carrousel"> <img src="\assets\imagenesCarrousel\imagen7.jpg" alt="imagen7"/> </div>
+                            <div className="item-picture-carrousel"> <img src="\assets\imagenesCarrousel\imagen3.jpg" alt="imagen3"/> </div>
+                            <div className="item-picture-carrousel"> <img src="\assets\imagenesCarrousel\imagen4.jpg" alt="imagen4"/> </div>
+                            <div className="item-picture-carrousel"> <img src="\assets\imagenesCarrousel\imagen5.jpg" alt="imagen5"/> </div>
+                            <div className="item-picture-carrousel"> <img src="\assets\imagenesCarrousel\imagen8.jpg" alt="imagen8"/> </div>
                         </Carrousel>
 
                 </div>

@@ -23,14 +23,14 @@
 
 /* Clase que se enviará al Carrousel */
 /* Contenedor de la imagen */
-.image-picture{
+.item-picture-carrousel{
     max-width: 300px;
     width: 20vw;
     height: 200px;
     scroll-snap-align: end ;
 }
     /* Imagen */
-.image-picture img{
+.item-picture-carrousel img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -68,7 +68,7 @@
     /* Clase que se enviará al Carrousel */
         /* Si en el componente Carrousel en "slidesToShowOnMovil = {2}" indica mostrar más de uno
         Tenga en cuenta el tamaño de cada contenedor de imagen (item o image-picture).  */
-    .image-picture{
+    .item-picture-carrousel{
         width: 300px;
     }
 }
