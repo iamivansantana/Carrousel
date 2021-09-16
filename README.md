@@ -1,6 +1,6 @@
 # Carrousel
 
-_Carrousel es un componente creado con react.js que puedes utilizar para crear un carrusel de imagenes,item,div, etc... de manera facil_
+_Carrousel es un componente creado con react.js que puedes utilizar para crear un carrusel de imagenes,item,div, etc... de manera facil y **responsive.**_
 
 ## Comenzando 🚀
 
