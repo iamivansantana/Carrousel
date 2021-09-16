@@ -6,7 +6,7 @@ _Carrousel es un componente creado con react.js que puedes utilizar para crear u
 
 _El componente recibe las siguientes props_  
 
-![](src\images\carrouselImage.png)
+![carrouselImage](https://user-images.githubusercontent.com/74259071/133658282-a355dbe0-7db4-4b76-9dd8-e3cfe33faf0f.png)
 
 
  **id** = "El id recibe un number o un string y debe ser diferente en cada Carrousel para poder tener mas de un Carrousel en nuestra proyecto"; id -> SI es obligatorio  
