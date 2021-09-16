@@ -133,6 +133,7 @@ const Carrousel = ({ id,slidesToShow,slidesToShowOnMovil=1,slidesToScroll=1,item
             let itemStyles = document.querySelector(items);
             let elementStyle = window.getComputedStyle(itemStyles);
             let widthItem = elementStyle.getPropertyValue('width'); 
+
             const widthItemNum = parseFloat(widthItem)*slidesToScroll;
             slider.scrollLeft +=widthItemNum;
         });
@@ -142,6 +143,7 @@ const Carrousel = ({ id,slidesToShow,slidesToShowOnMovil=1,slidesToScroll=1,item
             let itemStyles = document.querySelector(items);
             let elementStyle = window.getComputedStyle(itemStyles);
             let widthItem = elementStyle.getPropertyValue('width'); 
+            
             const widthItemNum = parseFloat(widthItem)*slidesToScroll;
             slider.scrollLeft -=widthItemNum;
 
