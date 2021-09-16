@@ -1,5 +1,5 @@
 import React from 'react';
-import Carrousel from './components/Carrousel';
+import Carrousel from './components/carrousel/Carrousel';
 import './AppScreen.css';
 
 

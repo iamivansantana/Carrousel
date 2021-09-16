@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import './Carrousel.css';
 
-            {/* Carrousel id = "El id recibe un number o un string y debe ser diferente en cada Carrousel para poder tener mas de un Carrousel en nuestra proyecto"; id -> SI es obligatorio */}
-            {/* Carrousel slidesToShow =  "slidesToShow recibe un number y es la cantidad de elementos (items) que se mostrarán en el Carrousel, el resto seran los que se visualizaran al hacer scroll; slidesToShow -> SI es obligatorio " */}
-            {/* Carrousel slidesToShowOnMovil = "slidesToShowOnMovil recibe un number y es la cantidad de elementos (items) que se mostrarán en el carrusel cuando el width sea menor o igual a 500 px ( Version Mobil ); slidesToShowOnMovil -> NO es obligatorio, por defecto esta inicializado en 1, si desea mostrar más items sí es obligatorio" */}
-            {/* Carrousel slidesToScroll = "slidesToScroll recibe un number y es la cantidad de Elemtos (items) por los que se recorrera el carrusel ";  slidesToScroll -> NO es obligatorio, por defecto esta inicializado en 1, si desea recorrer por más items sí es obligatorio" */}
-            {/* Carrousel items = "items recibe una string que debe ser una clase (incluir el punto inicial ejemplo-> '.image-picture'); La clase recibida debe ser extrictamente la de los elementos dentro del Carrousel; items -> SI es obligatorio " */}
-            {/* Carrousel arrowPrev = "arrowPrev recibe un id y es el id del elemento o button que ejecutara el scroll para retroceder al anterior item; arrowPrev -> No es obligatorio si no desea incluir los botones que controlan el scroll pero SI es obligatorio si desea incluir los botones que controlan el scroll" */}
-            {/* Carrousel arrowNext = "arrowNext recibe un id y es el id del elemento o button que ejecutara el scroll para avanzar al siguiente item; arrowNext -> No es obligatorio si no desea incluir los botones que controlan el scroll pero SI es obligatorio si desea incluir los botones que controlan el scroll" */}
-            {/* Carrousel puntos = "puntos recibe un id y es el id del elemento div en donde se mostraran los puntos de progreso"; puntos -> SI es obligatorio */}
+            // eslint-disable-next-line
+         {/* Carrousel id = "El id recibe un number o un string y debe ser diferente en cada Carrousel para poder tener mas de un Carrousel en nuestra proyecto"; id -> SI es obligatorio 
+             Carrousel slidesToShow =  "slidesToShow recibe un number y es la cantidad de elementos (items) que se mostrarán en el Carrousel, el resto seran los que se visualizaran al hacer scroll; slidesToShow -> SI es obligatorio " 
+             Carrousel slidesToShowOnMovil = "slidesToShowOnMovil recibe un number y es la cantidad de elementos (items) que se mostrarán en el carrusel cuando el width sea menor o igual a 500 px ( Version Mobil ); slidesToShowOnMovil -> NO es obligatorio, por defecto esta inicializado en 1, si desea mostrar más items sí es obligatorio" 
+             Carrousel slidesToScroll = "slidesToScroll recibe un number y es la cantidad de Elemtos (items) por los que se recorrera el carrusel ";  slidesToScroll -> NO es obligatorio, por defecto esta inicializado en 1, si desea recorrer por más items sí es obligatorio" 
+             Carrousel items = "items recibe una string que debe ser una clase (incluir el punto inicial ejemplo-> '.image-picture'); La clase recibida debe ser extrictamente la de los elementos dentro del Carrousel; items -> SI es obligatorio " 
+             Carrousel arrowPrev = "arrowPrev recibe un id y es el id del elemento o button que ejecutara el scroll para retroceder al anterior item; arrowPrev -> No es obligatorio si no desea incluir los botones que controlan el scroll pero SI es obligatorio si desea incluir los botones que controlan el scroll" 
+             Carrousel arrowNext = "arrowNext recibe un id y es el id del elemento o button que ejecutara el scroll para avanzar al siguiente item; arrowNext -> No es obligatorio si no desea incluir los botones que controlan el scroll pero SI es obligatorio si desea incluir los botones que controlan el scroll" 
+             Carrousel puntos = "puntos recibe un id y es el id del elemento div en donde se mostraran los puntos de progreso"; puntos -> SI es obligatorio */}
 
 const Carrousel = ({ id,slidesToShow,slidesToShowOnMovil=1,slidesToScroll=1,items,arrowPrev,arrowNext,puntos,children }) => {
 
@@ -20,7 +21,8 @@ const Carrousel = ({ id,slidesToShow,slidesToShowOnMovil=1,slidesToScroll=1,item
     const [tamañoDots, settamañoDots] = useState(0);
 
 
-    //Effecto para ejecutar el codigo cada que carga el componente, se ejecuta almenos una vez y despues de crear los elementos html.    
+    //Effecto para ejecutar el codigo cada que carga el componente, se ejecuta almenos una vez y despues de crear los elementos html.
+        // Incluye la funcion para los botones Next & Back     
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         // Funcion regresa true si la pantalla cumple con el width indicado
@@ -92,6 +94,7 @@ const Carrousel = ({ id,slidesToShow,slidesToShowOnMovil=1,slidesToScroll=1,item
         // se actualiza el state con la constante
         settamañoDots(tamañoDotsValue);
 
+        // CREAR DOTS (PUNTOS DE PROGRESO)
         // Obtiene el elemnto div donde se muestran los dots
         const puntosClass = document.querySelector(`#${puntos}`);
         
@@ -143,7 +146,7 @@ const Carrousel = ({ id,slidesToShow,slidesToShowOnMovil=1,slidesToScroll=1,item
             let itemStyles = document.querySelector(items);
             let elementStyle = window.getComputedStyle(itemStyles);
             let widthItem = elementStyle.getPropertyValue('width'); 
-            
+
             const widthItemNum = parseFloat(widthItem)*slidesToScroll;
             slider.scrollLeft -=widthItemNum;
 
@@ -154,11 +157,12 @@ const Carrousel = ({ id,slidesToShow,slidesToShowOnMovil=1,slidesToScroll=1,item
     //Effecto que escucha cuando cambia el tamaño de la pantalla;
     useEffect(() => {
 
+        // Funcion que se ejecuta cada que el tamaño de la pantalla cambia
         const screenResize = () => {
 
             //Obtiene Todos los items dentro del Componente.
             let itemsChild = document.querySelectorAll(items);
-            //obtiene los elementos con las clases .carruselContainer y  .slider.
+            //obtiene los elementos con el ID #carruselContainerID y #sliderID.
             let carruselContainer = document.querySelector(`#carruselContainer${id}`);
             let slider = document.querySelector(`#slider${id}`);
 
@@ -168,21 +172,20 @@ const Carrousel = ({ id,slidesToShow,slidesToShowOnMovil=1,slidesToScroll=1,item
                 return window.matchMedia('(max-width: 500px)').matches;
             }
             let slidesToShowValue;
-            //Si la pantalla es menor a 500px (celular Vertical) solo muestra 1 Item. Si no muestra los Item indicados al crear el componente.
+            //Si la pantalla es menor a 500px (celular Vertical) solo muestra slidesToShowOnMovil (1 Item por default). Si no muestra los Item indicados al crear el componente.
             if(isSmallScreen()){
-                // slidesToShowValue = slidesToShow;
                 slidesToShowValue = slidesToShowOnMovil;
             }else{  
                 slidesToShowValue = slidesToShow;
             }
 
-            //Obtiene los estilos del item. (width y maxWidth) cada vez que cambia el tamaño para visualizar de modo responsive.
+            //Obtiene los estilos del item. (width) cada vez que cambia el tamaño para visualizar de modo responsive.
             let itemStyles = document.querySelector(items); 
             if (itemStyles === null) return;
             let elementStyle = window.getComputedStyle(itemStyles);
             let widthItem = elementStyle.getPropertyValue('width');
             
-
+            // Condicional para reasignar el tamaño del width al CarruselContainer cada que el tamaño de pantalla cambia
             if (itemsChild.length>=slidesToShowValue) {    
                 const widthCarrusel = parseFloat(widthItem) * slidesToShowValue+'px';
                 carruselContainer.style.width = widthCarrusel;
@@ -191,7 +194,7 @@ const Carrousel = ({ id,slidesToShow,slidesToShowOnMovil=1,slidesToScroll=1,item
                 carruselContainer.style.width = widthCarrusel;
             }
 
-            //Funcion para calcular cantidad de Dots del carrusel
+            //Funcion para recalcular la cantidad de Dots del carrusel cada que el tamaño de pantalla cambia para lograr efecto responsive
             const sizeDots = () => {
                 
                 let widthCarrusell;
@@ -203,9 +206,9 @@ const Carrousel = ({ id,slidesToShow,slidesToShowOnMovil=1,slidesToScroll=1,item
                 const resultDots = 1+((scrollWidth-widthCarrusell)/itemWidth);
                 return Math.round( resultDots);
             } 
-        
+            // Guada el tamaño de dots necesarios en una constante
             let sizeDotsValue = sizeDots();
-            
+            // se actualiza el state con la constante
             settamañoDots(sizeDotsValue);
         }
 
@@ -214,41 +217,47 @@ const Carrousel = ({ id,slidesToShow,slidesToShowOnMovil=1,slidesToScroll=1,item
 
     });
 
-    // Effecto que crea los puntos de progreso dependiendo de cuantos se necesiten
+    // Effecto que crea los puntos de progreso dependiendo de cuantos se necesiten, se ejecuta cada que hay un cambio los states 
     useEffect(() => {
+
+            // Obtiene el elemnto div donde se muestran los dots
             const puntosClass = document.querySelector(`#${puntos}`);
-        
+
             if(tamañoDots === 0) return;
 
-            let dotsArray = new Array(tamañoDots);//create elements array
-            // console.log(dotsArray); //se cre cada vez un array de n elementos pero vacio !!Arreglar....
-        
+            // Nuevo arreglo del tamaño de los dots que se necesitan
+            let dotsArray = new Array(tamañoDots);
             let result=[]
-            for(var i=0;i<dotsArray.length;i++){
-            // const numi = i+1;
-             result = [...result,` <span class='1234${id}' id='spanDot${i}'>●</span>`];
 
+            for(var i=0;i<dotsArray.length;i++){
+            //guarda en cada espacio del arreglo el string para crear el elemnto HTML
+             result = [...result,` <span class='1234${id}' id='spanDot${i}'>●</span>`];
             }
-            // console.log(result);
+            // Con Array.reduce se unen todas los string guardados en cada elemto del arreglo para hacer una sola cadena
            const htmldots = result.reduce((accumulator, currentValue) => accumulator + currentValue);
-            // console.log(htmldots);
+            //Se crean los dots HTML en el elemto div
             puntosClass.innerHTML = htmldots; 
     }, [tamañoDots,puntos,id])
 
     // Efecto que escucha el scroll del Slider y determina que punto de progreso deve activarse
     useEffect(() => {
+        // Obtiene el elemnto #sliderID
         let slider = document.querySelector(`#slider${id}`);
         
+        // Funcion que se ejecuta con el evento scroll
         const dotsActive = ()=>{
 
+            // Obtiene nuevamente el width de cada item
             let itemStyles = document.querySelector(items);
             let elementStyle = window.getComputedStyle(itemStyles);
             let widthItem = elementStyle.getPropertyValue('width'); 
 
+            // Cantidad de scrol a la izquierda
             const scrL = slider.scrollLeft;
+            // Cantidad de escrollIzquierda entre el width del item nos indica el dot Activo
             const scrnum = Math.round(scrL/parseFloat(widthItem));
+            // Se actualisa state
             setScrollL('spanDot'+ scrnum);
-            // console.log(scrnum);
         }
 
         //Evento que escucha el scrool del Slider.
@@ -258,17 +267,19 @@ const Carrousel = ({ id,slidesToShow,slidesToShowOnMovil=1,slidesToScroll=1,item
 
     // Efecto que agrega clase activo al Dot
     useEffect(() => {
+        //Asigna clase activa para el dot Activo al renderizar el componente.
+            // se obtienen los dots creados y se convierten en un array
+        const spans = document.getElementsByClassName(`1234${id}`);
+        var arr = Array.prototype.slice.call( spans );
 
-                const spans = document.getElementsByClassName(`1234${id}`);
-                var arr = Array.prototype.slice.call( spans );
+        // Se recorren los elementos, se determina si contienen la clase dotActive, Se elimina del anteior y se asigna al nuevo dot activo
+        arr.forEach(element => {
 
-                arr.forEach(element => {
-
-                    const resp = element.classList.contains('dotActive');
-                    if (!resp) element.classList.remove('dotActive');
-                    if(element.id === scrollL) element.classList.add('dotActive');
-                    
-                });
+            const resp = element.classList.contains('dotActive');
+            if (!resp) element.classList.remove('dotActive');
+            if(element.id === scrollL) element.classList.add('dotActive');
+            
+        });
 
     }, [scrollL,tamañoDots,id]);
     
