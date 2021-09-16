@@ -1,0 +1,28 @@
+
+    /* contenedor */
+.carruselContainer{
+    height: auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+    /* slider */
+.sliderCarousel{
+    display: grid;
+    grid-auto-flow: column;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    scrollbar-color: transparent #f5f9ff;
+    scrollbar-width: thin;
+}
+    /* quita el scrollbar */
+.sliderCarousel::-webkit-scrollbar{
+    display: none;
+}
+    /* punto de progreso Activo*/
+.dotActive{
+    color: #436575;
+    -webkit-text-stroke: 1px #436575;
+}

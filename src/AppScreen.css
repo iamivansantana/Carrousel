@@ -1,0 +1,74 @@
+.contenedor-body{
+    position: absolute;
+    background-color: #f5f9ff;
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.flex-center{
+    display: flex;
+    width: auto;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Clase que se enviará al Carrousel */
+/* Contenedor de la imagen */
+.image-picture{
+    max-width: 300px;
+    width: 20vw;
+    height: 200px;
+    scroll-snap-align: end ;
+}
+    /* Imagen */
+.image-picture img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    cursor: pointer;
+}
+    /* Botones */
+.style-button{
+    margin: 5px;
+    border: none;
+    padding: 10px;
+    background-color: rgb(0, 173, 173);
+    box-shadow: 0px 0px 5px 2px rgb(94, 95, 95);
+    border: 1px solid #000;
+    color: #fff;
+    font-size: 1.3rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+    /* puntos de progreso */
+.style-puntos{
+    box-sizing: border-box;
+    display: flex;
+    height: 50px;
+    padding-top: 20px;
+    color: transparent;
+    -webkit-text-stroke: 1px #436575;
+    font-size: 1.2rem;
+}
+
+/* -----------------Maximo (phone)-------------------------------------------------------------------------------------------- */
+@media (max-width:500px){
+    
+    /* Contenedor de la imagen */
+    /* Clase que se enviará al Carrousel */
+        /* Si en el componente Carrousel en "slidesToShowOnMovil = {2}" indica mostrar más de uno
+        Tenga en cuenta el tamaño de cada contenedor de imagen (item o image-picture).  */
+    .image-picture{
+        width: 300px;
+    }
+}
