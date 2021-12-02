@@ -49,9 +49,9 @@ _Este Componente funciona con:_
 
 ### Instalación 🔧
 
-_ 1- Para un correcto funcionamiento del componente debes copiar a tu proyecto toda la carpeta components\carrousel (Carrousel.css & Carrousel.js)_
+_1- Para un correcto funcionamiento del componente debes copiar a tu proyecto toda la carpeta components\carrousel (Carrousel.css & Carrousel.js)_
 
- 2- Para una mejor experiencia de desplazamiento agregar el propiedad (scroll-snap-align: end;) en la clase que pasará en la props item
+ _2- Para una mejor experiencia de desplazamiento agregar el propiedad (scroll-snap-align: end;) en la clase que pasará en la props items_
 
 ```
  .itemClass{  
